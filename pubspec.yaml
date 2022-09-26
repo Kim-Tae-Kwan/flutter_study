@@ -31,6 +31,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  contacts_service: ^0.6.3
+  permission_handler: ^10.0.1
+  provider: ^6.0.3
+  http: ^0.13.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -63,6 +67,7 @@ flutter:
   assets:
     - assets/london.jpg
     - assets/autum-leaves.jpg
+    - assets/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
