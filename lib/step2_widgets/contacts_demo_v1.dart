@@ -53,7 +53,7 @@ class ContactListPageState extends State<ContactListPage>{
   }
 
   _refreshContacts() async {
-    Iterable<Contact> contacts = await ContactsService.getContacts(withThumbnails: false);
+    Iterable<Contact> contacts = await ContactsService.getContacts();
     setState(() {
       _contacts = contacts;
     });
@@ -63,11 +63,12 @@ class ContactListPageState extends State<ContactListPage>{
   Widget build(BuildContext context) {
     return _contacts.isNotEmpty
         ? ListView.builder(itemCount: _contacts.length, itemBuilder: _buildRow,)
-        : Center(child: CircularProgressIndicator(),);
+        : const Center(child: CircularProgressIndicator(),);
   }
 
   Widget _buildRow(BuildContext context, int i){
     Contact c = _contacts.elementAt(i);
+    print(c.avatar);
     print(c.avatar!.sublist(0));
     return ListTile(
       leading: (c.avatar != null && c.avatar!.isNotEmpty)

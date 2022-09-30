@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<response>
+    <header>
+        <resultCode>00</resultCode>
+        <resultMsg>NORMAL SERVICE</resultMsg>
+    </header>
+    <body>
+        <items>
+            <item>
+                <bstopid>172640401</bstopid>
+                <bstopnm>부암역.당감입구</bstopnm>
+                <arsno>05192</arsno>
+                <gpsx>129.050682317136</gpsx>
+                <gpsy>35.158548378331</gpsy>
+                <stoptype>일반</stoptype>
+            </item>
+            <item>
+                <bstopid>172630101</bstopid>
+                <bstopnm>부암역.당감입구</bstopnm>
+                <arsno>05193</arsno>
+                <gpsx>129.0501385394</gpsx>
+                <gpsy>35.1589381156</gpsy>
+                <stoptype>일반</stoptype>
+            </item>
+            <item>
+                <bstopid>172640301</bstopid>
+                <bstopnm>부암역</bstopnm>
+                <arsno>05194</arsno>
+                <gpsx>129.0490133333</gpsx>
+                <gpsy>35.157205</gpsy>
+                <stoptype>일반</stoptype>
+            </item>
+            <item>
+                <bstopid>172080101</bstopid>
+                <bstopnm>부암역</bstopnm>
+                <arsno>05195</arsno>
+                <gpsx>129.0482816667</gpsx>
+                <gpsy>35.156715</gpsy>
+                <stoptype>일반</stoptype>
+            </item>
+            <item>
+                <bstopid>164620303</bstopid>
+                <bstopnm>부암역.부산도시공사</bstopnm>
+                <arsno>05344</arsno>
+                <gpsx>129.051292</gpsx>
+                <gpsy>35.1559</gpsy>
+                <stoptype>일반</stoptype>
+            </item>
+        </items>
+        <numOfRows>10</numOfRows>
+        <pageNo>1</pageNo>
+        <totalCount>5</totalCount>
+    </body>
+</response>

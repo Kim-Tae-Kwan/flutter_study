@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
-  ChangeNotifierProvider(
-    builder: (context) => SimpleState(),
-    child: StateLoginDemo(),
-  )
+  // ChangeNotifierProvider(
+  //   builder: (context) => SimpleState(),
+  //   child: StateLoginDemo(),
+  // )
 );
 
 const String ROOT_PAGE = '/';
@@ -20,8 +20,8 @@ class StateLoginDemo extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       initialRoute: ROOT_PAGE,
       routes: {
-        ROOT_PAGE : (context) => LoginPage(),
-        MAIN_PAGE : (context) => MainPage()
+        // ROOT_PAGE : (context) => LoginPage(),
+        // MAIN_PAGE : (context) => MainPage()
       },
     );
   }

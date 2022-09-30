@@ -35,6 +35,7 @@ dependencies:
   permission_handler: ^10.0.1
   provider: ^6.0.3
   http: ^0.13.5
+  xml: ^6.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -68,6 +69,7 @@ flutter:
     - assets/london.jpg
     - assets/autum-leaves.jpg
     - assets/logo.png
+    - assets/subway.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
