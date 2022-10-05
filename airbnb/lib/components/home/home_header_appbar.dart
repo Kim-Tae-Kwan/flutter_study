@@ -13,7 +13,7 @@ class HomeHeaderAppBar extends StatelessWidget {
       child: Row(
         children: [
           _buildAppBarLogo(),
-          Spacer(),
+          const Spacer(),
           _buildAppBarMenu()
         ],
       ),
@@ -24,7 +24,7 @@ class HomeHeaderAppBar extends StatelessWidget {
     return Row(
       children: [
         Image.asset('assets/logo.png', width: 30, height: 30, color: kAccentColor,),
-        SizedBox(width: gap_s,),
+        const SizedBox(width: gap_s,),
         Text('RoomOfAll', style: h5(mColor: Colors.white),)
       ],
     );
