@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:cardrpt/models/department.dart';
 import 'package:http/http.dart' as http;
 
 class DepartmentService {
@@ -22,7 +22,7 @@ class DepartmentService {
     "API_ID": "cardrpt_0002_01_r001"
   };
 
-  getReport() async{
+  Future<ByDept> getReport() async{
     await _getSession();
 
     http.Response response = await http.post(
@@ -31,7 +31,7 @@ class DepartmentService {
       headers: headers,
     );
 
-    return jsonDecode(response.body);
+    return ByDept.fromJson(jsonDecode(response.body));
   }
 
   _getSession() async{
@@ -52,5 +52,4 @@ class DepartmentService {
       headers['Cookie'] = response.headers['set-cookie']!;
     }
   }
-
 }

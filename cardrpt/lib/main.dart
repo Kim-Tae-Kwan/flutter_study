@@ -1,4 +1,5 @@
 import 'package:cardrpt/pages/searchReport.dart';
+import 'package:cardrpt/pages/searchResult.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -10,10 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '카드보고서',
-      home: Scaffold(
-        appBar: AppBar(title: Text('카드보고서')),
-        body: searchReport()
-      ),
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => searchReport(),
+        '/result' : (context) => SearchResult()
+
+      },
     );
   }
 }

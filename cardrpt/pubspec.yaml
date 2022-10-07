@@ -32,6 +32,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.5
+  intl: ^0.17.0
+  syncfusion_flutter_datagrid: ^20.3.48
 
 
   # The following adds the Cupertino Icons font to your application.
