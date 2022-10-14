@@ -6,8 +6,7 @@ import 'package:management_app/BaseModel.dart';
 
 Directory? docsDir;
 
-Future<String?> selectDate(
-    {required BuildContext context, required BaseModel inModel, String? inDateString}) async {
+Future<String?> selectDate({required BuildContext context, required BaseModel inModel, String? inDateString}) async {
   DateTime initialDate = DateTime.now();
 
   if (inDateString != null) {

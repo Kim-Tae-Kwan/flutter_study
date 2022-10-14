@@ -8,14 +8,14 @@ import 'package:path_provider/path_provider.dart';
 import 'utils.dart' as utils;
 
 void main() {
-  startMeUp() async {
+
+  startUp() async{
     Directory docsDir = await getApplicationDocumentsDirectory();
     utils.docsDir = docsDir;
-
-    runApp(ManagementApp());
+    runApp(const ManagementApp());
   }
-
-  startMeUp();
+  WidgetsFlutterBinding.ensureInitialized();
+  startUp();
 }
 
 class ManagementApp extends StatelessWidget {
@@ -50,12 +50,12 @@ class ManagementApp extends StatelessWidget {
               ],
             ),
           ),
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              Appointments(),
-              Contacts(),
+              const Appointments(),
+              const Contacts(),
               Notes(),
-              Tasks()
+              const Tasks()
             ],
           ),
         ),
