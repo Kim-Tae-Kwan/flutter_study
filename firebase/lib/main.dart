@@ -1,3 +1,5 @@
+import 'package:firebase/memoPage.dart';
+import 'package:firebase/tabsPage.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Firebase Example',
       theme: ThemeData(primarySwatch: Colors.blue),
       navigatorObservers: [observer],
-      home: FirebaseApp(
-        analytics: analytics,
-        observer: observer,
-      ),
+      home: MemoPage()
     );
   }
 }
@@ -37,15 +36,11 @@ class FirebaseApp extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<FirebaseApp> createState() => _FirebaseAppState(analytics, observer);
+  State<FirebaseApp> createState() => _FirebaseAppState();
 }
 
 class _FirebaseAppState extends State<FirebaseApp> {
-  final FirebaseAnalytics analytics;
-  final FirebaseAnalyticsObserver observer;
   String _message = '';
-
-  _FirebaseAppState(this.analytics, this.observer);
 
   void setMessage(String mes) {
     setState(() {
@@ -54,7 +49,7 @@ class _FirebaseAppState extends State<FirebaseApp> {
   }
 
   _sendAnalyticsEvent() async {
-    await analytics.logEvent(
+    await widget.analytics.logEvent(
         name: 'test_event',
         parameters: {'string': 'hello  flutter', 'int': 100});
     setMessage('Analytics 보내기 성공');
@@ -84,7 +79,14 @@ class _FirebaseAppState extends State<FirebaseApp> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute<TabsPage>(
+            settings: const RouteSettings(name: '/tab'),
+            builder: (context) {
+              return TabsPage(observer: widget.observer);
+            },
+          ));
+        },
         child: const Icon(Icons.tab),
       ),
     );

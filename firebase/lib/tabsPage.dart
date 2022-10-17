@@ -7,15 +7,12 @@ class TabsPage extends StatefulWidget {
   const TabsPage({Key? key, required this.observer}) : super(key: key);
 
   @override
-  State<TabsPage> createState() => _TabsPageState(observer);
+  State<TabsPage> createState() => _TabsPageState();
 }
 
 class _TabsPageState extends State<TabsPage> with SingleTickerProviderStateMixin, RouteAware {
-  final FirebaseAnalyticsObserver observer;
   TabController? _controller;
   int selectedIndex = 0;
-
-  _TabsPageState(this.observer);
 
   final List<Tab> tabs = [
     const Tab(
@@ -49,17 +46,35 @@ class _TabsPageState extends State<TabsPage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        bottom: TabBar(
+          controller: _controller,
+          tabs: tabs,
+        ),
+      ),
+      body: TabBarView(
+        controller: _controller,
+        children: tabs.map((Tab tab) {
+          return Center(child: Text(tab.text!),);
+        }).toList(),
+      ),
+    );
   }
-
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    observer.subscribe(this, ModalRoute<dynamic>);
+    widget.observer.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    widget.observer.unsubscribe(this);
+    super.dispose();
   }
 
   _sendCurrentTab(){
-    observer.analytics.setCurrentScreen(screenName: 'tab/$selectedIndex');
+    widget.observer.analytics.setCurrentScreen(screenName: 'tab/$selectedIndex');
   }
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "686993771633",
+    "firebase_url": "https://modutour-cf3f9-default-rtdb.firebaseio.com",
+    "project_id": "modutour-cf3f9",
+    "storage_bucket": "modutour-cf3f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686993771633:android:4f6ee602439c3aa5e55fd0",
+        "android_client_info": {
+          "package_name": "com.ktk.modu_tour"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686993771633-tciaa96dg048ecmv24vm7a7gn25j421m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbLHwrQFSaW3O0DwYmin6ISDMAaqm8DY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686993771633-tciaa96dg048ecmv24vm7a7gn25j421m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
