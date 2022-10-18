@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_aap/constants.dart';
+import 'package:plant_aap/screens/detail/detail_screen.dart';
 
 class RecomendPlants extends StatelessWidget {
   const RecomendPlants({
@@ -13,28 +14,56 @@ class RecomendPlants extends StatelessWidget {
       child: Row(
         children: [
           ReomendPlantCard(
-            onPress: (){},
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(),
+                )
+              );
+            },
             title: 'samantha',
             country: 'russia',
             price: 440,
             imagePath: 'assets/images/image_1.png',
           ),
           ReomendPlantCard(
-            onPress: (){},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(),
+                  )
+              );
+            },
             title: 'samantha',
             country: 'russia',
             price: 440,
             imagePath: 'assets/images/image_2.png',
           ),
           ReomendPlantCard(
-            onPress: (){},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(),
+                  )
+              );
+            },
             title: 'samantha',
             country: 'russia',
             price: 440,
             imagePath: 'assets/images/image_3.png',
           ),
           ReomendPlantCard(
-            onPress: (){},
+            onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(),
+                  )
+              );
+            },
             title: 'samantha',
             country: 'russia',
             price: 440,
@@ -57,7 +86,9 @@ class ReomendPlantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Container(
       margin: const EdgeInsets.only(
           left: kDefaultPadding,
@@ -80,7 +111,7 @@ class ReomendPlantCard extends StatelessWidget {
                   ),
                   boxShadow: [
                     BoxShadow(
-                        offset: const Offset(0,10),
+                        offset: const Offset(0, 10),
                         blurRadius: 50,
                         color: kPrimaryColor.withOpacity(0.23)
                     )
@@ -94,7 +125,10 @@ class ReomendPlantCard extends StatelessWidget {
                         children: [
                           TextSpan(
                               text: '$title\n'.toUpperCase(),
-                              style: Theme.of(context).textTheme.button
+                              style: Theme
+                                  .of(context)
+                                  .textTheme
+                                  .button
                           ),
                           TextSpan(
                               text: country.toUpperCase(),
@@ -107,7 +141,11 @@ class ReomendPlantCard extends StatelessWidget {
                   ),
                   Text(
                     '\$$price',
-                    style: Theme.of(context).textTheme.button!.copyWith(color: kPrimaryColor),
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .button!
+                        .copyWith(color: kPrimaryColor),
                   )
                 ],
               ),
