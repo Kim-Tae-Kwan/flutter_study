@@ -131,19 +131,30 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                               reference
                                   .child(_idTextController.value.text)
                                   .onValue
-                                  .listen((event) {
-                                    User user = User.fromSnapshot(event.snapshot);
-                                    var bytes = utf8.encode(_pwTextController.value.text);
-                                    var digest = sha1.convert(bytes);
-                                    if(user.pw == digest.toString()){
-                                      Navigator.of(context).pushReplacementNamed('/main', arguments: _idTextController.value.text);
+                                  .listen((DatabaseEvent event) {
+                                    if(event.snapshot.value == null){
+                                      makeDialog('아이디가 없습니다.');
                                     }else{
-                                      makeDialog('비밀번호가 틀립니다.');
+                                      reference
+                                          .child(_idTextController.value.text)
+                                          .onChildAdded
+                                          .listen((event) {
+                                        User user = User.fromSnapshot(event.snapshot);
+                                        var bytes = utf8.encode(_pwTextController.value.text);
+                                        var digest = sha1.convert(bytes);
+                                        if(user.pw == digest.toString()){
+                                          makeDialog('로그인 성공.');
+                                          Navigator.of(context).pushReplacementNamed('/main', arguments: _idTextController.value.text);
+                                        }else{
+                                          makeDialog('비밀번호가 틀립니다.');
+                                        }
+                                      });
                                     }
                                   });
                             }
                           },
                           child: const Text('로그인'),
+
                         ),
                       ],
                     )
