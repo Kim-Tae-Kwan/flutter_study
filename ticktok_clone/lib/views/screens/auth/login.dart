@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticktok_clone/contants.dart';
+import 'package:ticktok_clone/views/screens/auth/sign.dart';
 import 'package:ticktok_clone/views/widgets/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,6 +9,8 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   LoginScreen({Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +53,13 @@ class LoginScreen extends StatelessWidget {
                 controller: _passwordController,
                 labelText: 'Password',
                 icon: Icons.lock,
+                isObscure: true,
               ),
             ),
             const SizedBox(height: 30,),
             InkWell(
               onTap: () {
-                print('login');
+                authController.loginUser(email: _emailController.text, password: _passwordController.text);
               },
               focusColor: Colors.white,
               child: Container(
@@ -80,12 +84,14 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Don`t have an account?'
                 ),
                 const SizedBox(width: 5,),
                 InkWell(
-                  onTap:() {},
+                  onTap:() {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignScreen(),));
+                  },
                   // hoverColor: Colors.white,
                   child: Text(
                     'Register',
@@ -96,8 +102,6 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             )
-
-
           ],
         ),
       ),
