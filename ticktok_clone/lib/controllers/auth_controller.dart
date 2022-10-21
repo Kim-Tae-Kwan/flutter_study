@@ -15,7 +15,7 @@ class AuthController extends GetxController{
   Rx<File?>? _pickedImage;
 
   File? get profilePhoto => _pickedImage?.value;
-
+  User? get user => _user!.value;
 
   @override
   void onReady() {
@@ -77,7 +77,7 @@ class AuthController extends GetxController{
     final XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (image != null) {
       Get.snackbar('Profile Picture', 'You have successfully selected your profile picture!');
-      _pickedImage = Rx<File?>(File(image!.path));
+      _pickedImage = Rx<File?>(File(image.path));
     }
   }
 }

@@ -33,7 +33,7 @@ class Video{
     uid = map['uid'];
     id = map['id'];
     likes = map['likes'];
-    username = map['commentCount'];
+    commentCount = map['commentCount'];
     shareCount = map['shareCount'];
     songName = map['songName'];
     caption = map['caption'];
@@ -44,7 +44,7 @@ class Video{
 
   Map<String, dynamic> toJson(){
     return {
-      'uaername' : username,
+      'username' : username,
       'uid' : uid,
       'id' : id,
       'likes' : likes,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ticktok_clone/contants.dart';
 import 'package:ticktok_clone/views/screens/confirm_screen.dart';
@@ -99,7 +100,8 @@ class AddVideoScreen extends StatelessWidget {
   _pickVideo(BuildContext context, ImageSource source) async {
     XFile? video = await ImagePicker().pickVideo(source: source);
     if(video != null){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmScreen(videoFile: File(video.path), videoPath: video.path),));
+      Get.to(ConfirmScreen(videoFile: File(video.path), videoPath: video.path));
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context) => ConfirmScreen(videoFile: File(video.path), videoPath: video.path),));
     }
   }
 }
